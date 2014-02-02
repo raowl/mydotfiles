@@ -2,14 +2,14 @@
 
 # start 
 
-CHOICES=('frederick' 'webdev')
+CHOICES=('rawl' 'webdev')
 
 
 # open vim session corresponding to the response in the menu
-frederickenv()
+rawlenv()
 {
     # the name of your primary tmux session
-    SESSION=frederick
+    SESSION=rawl
     # your IRC nickname
     IRC_NICK=raowl
      
@@ -35,7 +35,7 @@ frederickenv()
     #tmux set-window-option -t $SESSION:0 monitor-content $IRC_NICK
     tmux rename-window -t $SESSION:0 -n irc
     # 1 - pserve console
-    tmux new-window    -t $SESSION:1 -n pserve 'cd ~/projects/gcomplexenv/general-complex13; . ../bin/activate; pserve --reload development.ini'
+    tmux new-window    -t $SESSION:1 -n pserve 'cd ~/projects/exampleenv/example; . ../bin/activate; pserve --reload development.ini'
     # 2 - Music (on one workstation, nothing on another)
     # So that I can quickly hit ^b2<spacebar> to pause my tunes, I always put music in window 2.
     # Makefile target does this: mpg123 --shuffle --control --list *m3u
@@ -45,8 +45,8 @@ frederickenv()
     # After those base windows are statically defined, what follows depends where
     # I'm working and what my focus is.
     # So these new windows will just  number sequentially.
-    tmux new-window    -t $SESSION:2 -n frederick
-    tmux send-keys -t $SESSION:2 "cd ~/projects/gcomplexenv/general-complex13; vim -S ~/.vim/sessions/$resp.vim" C-m
+    tmux new-window    -t $SESSION:2 -n rawl
+    tmux send-keys -t $SESSION:2 "cd ~/projects/exampleenv/example; vim -S ~/.vim/sessions/$resp.vim" C-m
 
     #tmux kill-window   -t $SESSION:2 # just want to leave slot 2 empty
     #
@@ -63,8 +63,8 @@ sudo systemctl start postgresql
 resp=$(zenity --width=200 --height=150 --list --column "" --title="choice" ${CHOICES[@]})
 
 case "$resp" in
-    "frederick")
-       frederickenv 
+    "rawl")
+       rawlenv 
         ;;
     "webdev" | "other")
         echo "webdevenv"
