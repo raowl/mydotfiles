@@ -1,7 +1,7 @@
 mydotfiles
 ==========
 
-my vim, tmux, xdefaults and fluxbox configuration files
+my vim, tmux, xdefaults and fluxbox configuration files, also some scripts i use.
 
 Mostly for easy installation in other computers.
 
