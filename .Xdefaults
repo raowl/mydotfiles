@@ -1,0 +1,148 @@
+URxvt*loginShell:true
+URxvt.termName: rxvt-unicode-256color
+URxvt*transparent:true
+URxvt*shading:5
+#URxvt*background:Black
+#URxvt*foreground:White
+URxvt*scrollBar:true
+URxvt*scrollBar_right:true
+URxvt*scrollBar_floating:false
+URxvt*scrollstyle:plain
+URxvt*secondaryScroll:true
+
+# how many lines you want it to save per session
+URxvt*saveLines:32767
+URxvt*troughColor:#000000
+URxvt*scrollColor:#222222
+#URxvt*font: xft:Dejavu Sans Mono:pixelsize=11
+
+
+#
+# - Custom default window size.
+#
+URxvt.geometry: 100x24
+
+
+# Color https://github.com/chusiang/tuxENV/blob/master/_Xdefaults
+# ========
+#
+# - Text/Font color (default is black).
+URxvt.foreground: #FFFFFF
+#
+# - Background color (prior to tinting) (default is white).
+URxvt.background: #000000
+#
+# UnderLine
+#URxvt.underlineColor: #cc0000
+#
+# - URLs color
+URxvt.colorUL: #7f7f7f
+#
+# - Scheme: Ambience
+#
+# Black.
+URxvt.color0: #000000
+URxvt.color8: #AAAAAA
+#
+# Red.
+URxvt.color1: #cc0000
+URxvt.color9: #ef2929
+#
+# Green.
+URxvt.color2: #4E9A06
+URxvt.color10: #8AE234
+#
+# Yellow.
+URxvt.color3: #C4A000
+URxvt.color11: #FCE94F
+#
+# Blue.
+URxvt.color4: #3465A4
+URxvt.color12: #729FCF
+#
+# Magenta.
+URxvt.color5: #75507B
+URxvt.color13: #AD7FA8
+#
+# Cyan.
+URxvt.color6: #06989A
+URxvt.color14: #34E2E2
+#
+# White.
+URxvt.color7: #D3D7CF
+URxvt.color15: #EEEEEC
+
+
+#this are from http://thtump.blogspot.com/2012/03/urxvt-looking-better-and-with-tabs.html
+#URxvt*background: #000000
+#URxvt*foreground: #00ff00
+! black
+#URxvt.color0  : #000000
+#URxvt.color8  : #555555
+! red
+#URxvt.color1  : #AA0000
+#URxvt.color9  : #FF5555
+! green
+#URxvt.color2  : #00AA00
+#URxvt.color10 : #55FF55
+! yellow
+#URxvt.color3  : #AA5500
+#URxvt.color11 : #FFFF55
+! blue
+#URxvt.color4  : #0000AA
+#URxvt.color12 : #5555FF
+! magenta
+#URxvt.color5  : #AA00AA
+#URxvt.color13 : #FF55FF
+! cyan
+#URxvt.color6  : #00AAAA
+#URxvt.color14 : #55FFFF
+! white
+#URxvt.color7  : #AAAAAA
+#URxvt.color15 : #FFFFFF
+
+
+
+# fonts
+# =====
+#URxvt*font: xft:Monospace:pixelsize=18
+#URxvt*font: xft:Monospace:pixelsize=14
+URxvt*font:xft:Inconsolata:pixelsize=18:antialias=true:hinting=true
+# dont use bold font?
+#URxvt*boldFont: xft:Monospace:pixelsize=18
+#URxvt*boldFont: xft:Monospace:pixelsize=18
+URxvt*boldFont: xft:Inconsolata:pixelsize=18:antialias=true:bold:hinting=true
+#URxvt*letterSpace: -1
+
+
+# try this ones
+
+#URxvt.font: xft:Monaco:pixelsize=18:autohint=true, xft:LiHei Pro:pixelsize=18:autohint=true
+#URxvt.boldFont: xft:Monaco:bold:pixelsize=18:autohint=true, xft:LiHei Pro:pixelsize=18:autohint=true
+#URxvt.italicFont: xft:Monaco:italic:pixelsize=18:autohint=true, xft:LiHei Pro:italic:pixelsize=18:autohint=true
+
+
+# with this set to true, when an app sends a bell to the terminal, awesome hilights the appropriate tag(s) ;)
+URxvt*urgentOnBell: true
+
+# these three lines enable clicking on links to open them ;)
+## if you want to enable tab support, append ,tabbed to the next line
+## then use shift+down arrow to create tabs and shift+{left,right} arrows to switch between them
+URxvt.iso14755: False
+URxvt*perl-ext-common: default,clipboard,fullscreen, matcher,-option-popup,-selection-popup,-realine
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
+URxvt*matcher.button: 1
+# don't forget to change this to your favorite browser
+URxvt*urlLauncher: chromium
+
+#
+# - For screen/tmux. (\001 is C-a.)
+#
+URxvt.keysym.M-Left: \001p
+URxvt.keysym.M-Right: \001n
+URxvt.secondaryScroll: true
+
+URxvt.clipboard.autocopy: true
+
