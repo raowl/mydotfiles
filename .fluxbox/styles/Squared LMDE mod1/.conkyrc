@@ -1,0 +1,107 @@
+background no
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+ 
+maximum_width 400
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color lightgray
+default_shade_color red
+default_outline_color green
+alignment top_left
+gap_x 24
+gap_y 10
+ 
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale yes
+use_spacer none
+ 
+ 
+TEXT
+${alignc 32}${font Open Sans:size=20}${color lightgray}arch${color dodgerblue3} linux$font$color
+${alignc}${font Open Sans:size=10}${color white}${execi 30 users | cut -c1-5}@$nodename
+$color${font}${font Open Sans:size=20}$alignr${time %H:%M}$font
+${color dodgerblue3}${font Open Sans:Bold:size=10}Date${hr 2}$color$font
+$color${font Open Sans:size=12}$alignr${time %a}, ${time %d %b %Y}$font$color
+ 
+# SYS
+${font Open Sans:Bold:size=10}${color dodgerblue3}SYSTEM${hr 2}$color${font}
+$sysname $kernel $alignr $machine
+Uptime $alignr $uptime
+Temp ${alignr}${execi 1 cat /sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp | cut -c1-2}°C
+#MB Temperature $alignr ${execi 30 sensors | grep 'SYSTIN:' | cut -c17-18}°C
+#GPU Temperature $alignr ${execi 30 sensors | grep 'temp1:' | cut -c16-17}°C
+ 
+# CPU
+${font Open Sans:Bold:size=10}${color dodgerblue3}CPU${hr 2}
+$color${font}Intel i7-3630QM $alignr ${freq_g cpu0}GHz
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#${font}Core 0 ${color dodgerblue3}${execi 30 sensors | grep 'Core 0:' | cut -c18-19}°C${color} @ ${cpu cpu1} % $alignc ${color dodgerblue3}${cpubar cpu1}${color}
+#${font}Core 1 ${color dodgerblue3}${execi 30 sensors | grep 'Core 1:' | cut -c18-19}°C${color} @ ${cpu cpu2} % $alignc ${color dodgerblue3}${cpubar cpu2}${color}
+${font}Core 1  ${cpu cpu1}% ${cpubar cpu1}
+${font}Core 2  ${cpu cpu2}% ${cpubar cpu2}
+${font}Core 3  ${cpu cpu3}% ${cpubar cpu3}
+${font}Core 4  ${cpu cpu4}% ${cpubar cpu4}
+ 
+# TOP
+${font Open Sans:Bold:size=10}${color dodgerblue3}TOP${hr 2}
+$color${font}${font Open Sans:bold:size=8.5}PROCESS $alignr CPU USAGE$font
+${top name 1}${alignr}${top cpu 1} %
+${top name 2}${alignr}${top cpu 2} %
+${top name 3}${alignr}${top cpu 3} %
+${top name 4}${alignr}${top cpu 4} %
+${top name 5}${alignr}${top cpu 5} %
+ 
+# MEMORY
+${font Open Sans:Bold:size=10}${color dodgerblue3}MEMORY${hr 2}
+$color${font}${font Open Sans:bold:size=8.5}RAM$font
+$mem / $memmax $alignr $memperc %
+$membar
+ 
+${font Open Sans:bold:size=8.5}SWAP$font
+$swap / $swapmax $alignr $swapperc
+${swapbar};
+ 
+# NETWORK
+${font Open Sans:Bold:size=10}${color dodgerblue3}Network${hr 2}
+#$color${font Open Sans:bold:size=8.5}External IP ${font}${alignr}${execi 3600 wget -O - http://ip.tupeux.com | tail}$font
+#${font Open Sans:bold:size=8.5}wlan0 $font$alignr ${addr wlan0}
+#down $alignr ${downspeed wlan0} kb/s Total down: $alignr ${totaldown wlan0}
+#up $alignr ${upspeed wlan0} kb/s Total up: $alignr ${totalup wlan0}
+${if_existing /sys/class/net/wlp3s0/operstate up}
+${font}SSID: ${alignr}${wireless_essid wlp3s0}
+${font Open Sans:bold:size=8.5}Inbound: $font$alignr${downspeed wlp3s0}
+Outbound: ${alignr}${upspeed wlp3s0}
+Inbound total: ${alignr}${totaldown wlp3s0}
+Outbound total: ${alignr}${totalup wlp3s0}${endif}
+
+#${font Open Sans:Bold:size=10}${color dodgerblue3}Network${hr 2}
+#$color${font Open Sans:bold:size=8.5}External IP ${font}${alignr}${execi 3600 wget -O - http://ip.tupeux.com | tail}$font
+ 
+# HDD
+${font Open Sans:Bold:size=10}${color dodgerblue3}Disks${hr 2}
+$color${font Open Sans:bold:size=8.5}/dev/sda $font$alignr ${execi 30 sudo hddtemp /dev/sda | grep '/dev/sda:' | cut -d ' ' -f 4
+ 
+${font Open Sans:bold:size=8.5}ROOT $font$font$alignr ${fs_type /}
+${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /} %
+${fs_bar /}
+ 
+${font Open Sans:bold:size=8.5}HOME $font$alignr ${fs_type /home}
+${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home} %
+${fs_bar /home}
+
+${font Open Sans:Bold:size=10}${color dodgerblue3}Batery${hr 2}
+Battery:${voffset 2} ${battery_bar 5,150} ${battery_percent}%

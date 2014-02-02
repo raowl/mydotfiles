@@ -1,0 +1,28 @@
+/* XPM */
+static char *hardware_scsi[] = {
+/* columns rows colors chars-per-pixel */
+"24 18 4 1 ",
+"  c black",
+". c gray50",
+"X c gray75",
+"o c None",
+/* pixels */
+"oooooooooooooooooooooooo",
+"oooooooooo..oooooooooooo",
+"ooooooooo.  .ooooooooooo",
+"oooooooo. .. .oooooooooo",
+"ooooooo. .oo. .ooooooooo",
+"oooooo. .oXoo. .oooooooo",
+"ooooo. .oX.ooo. .ooooooo",
+"oooo. .oX.oooooooooooooo",
+"ooo. .oX.ooo.      .oooo",
+"ooo. .oX.ooo.      .oooo",
+"oooo. .oX.oooooooooooooo",
+"ooooo. .oX.ooo. .ooooooo",
+"oooooo. .oXoo. .oooooooo",
+"ooooooo. .oo. .ooooooooo",
+"oooooooo. .. .oooooooooo",
+"ooooooooo.  .ooooooooooo",
+"oooooooooo..oooooooooooo",
+"oooooooooooooooooooooooo"
+};

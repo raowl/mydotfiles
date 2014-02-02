@@ -1,0 +1,37 @@
+/* XPM */
+static char *bar_analysis[] = {
+/* columns rows colors chars-per-pixel */
+"24 18 13 1 ",
+"  c black",
+". c #7C7C7C",
+"X c #EE9C00",
+"o c #F2B540",
+"O c #F6CD7F",
+"+ c #B2B2B2",
+"@ c #F8D799",
+"# c #CECECE",
+"$ c #FCEBCC",
+"% c gray90",
+"& c #FEF5E6",
+"* c gray100",
+"= c None",
+/* pixels */
+"========================",
+"                       =",
+" ********************* =",
+" *X@X@X@X@X@X@X@X@X@X* =",
+" *X@X@X@X$X@X@X@X@X@X* =",
+" *X@X@X$X$X$X@X@X@X@X* =",
+" *X@X$X$o&o$X$X@X@X$X* =",
+" *X$X$o*O*O*o$X@X@X&o* =",
+" *X$o*O* * *O*o$X$O*O* =",
+" *O*O* * * * *O&X&O* * =",
+" * *O* * * * *O*O*O* * =",
+"   % % % % % % % % %   =",
+"== # # # # # # # # # ===",
+"== + + + + + + + + + ===",
+"== + + + + + + + + + ===",
+"== + + + + + + + + + ===",
+"== . . . . . . . . . ===",
+"==                   ==="
+};
